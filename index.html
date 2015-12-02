@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="css/index.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/raphael-min.js"></script>
+	<script type="text/javascript" src="json/objeto.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+	window.onload = function(){
+		var paper = Raphael("canvas"); 
+		var c = paper.path(json.cor1); 
+		c.attr({fill:'#fff'}); 
+		$("nav ul li").on("click",function(){
+			var seccion = $(this).attr("data-section");
+			console.log(seccion);
+			if (seccion == 1){
+				c.animate({
+					path: (json.cor2)
+				}, 1000,'ease-in-out');
+			}else if(seccion == 2){
+				c.animate({
+					path: (json.d)
+				}, 1000,'bounce');
+			}else if(seccion == 3){
+				c.animate({
+					path: (json.d2)
+				}, 1000,'ease-in-out');
+			}else if(seccion == 4){
+				c.animate({
+					path: (json.cor1)
+				}, 1000,'bounce');
+			};
+		});
+	}
+	</script>
+</head>
+<body>
+	<div id="canvas"></div>
+	<nav>
+		<ul>
+			<li id="boton-1" data-section="1" class="boton">boton 1</li>
+			<li id="boton-2" data-section="2" class="boton">boton 2</li>
+			<li id="boton-3" data-section="3" class="boton">boton 3</li>
+			<li id="boton-4" data-section="4" class="boton">boton 4</li>
+		</ul>
+	</nav>
+</body>
+</html>
